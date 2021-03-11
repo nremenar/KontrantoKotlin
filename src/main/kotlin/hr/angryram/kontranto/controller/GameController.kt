@@ -10,5 +10,4 @@ class GameController {
     fun showBoard() :String{
         return "board";
     }
-
 }

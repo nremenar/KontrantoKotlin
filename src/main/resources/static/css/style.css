@@ -3,12 +3,8 @@ body {
 }
 img {
     display: block;
-    margin-top: 85px;
-    margin-bottom: 8%;
-    margin-right: auto;
-    margin-left: auto;
-    height: 300px;
-    
+    margin: 85px auto 8%;
+
 }
 a, .okvir {
     color: #000000;
