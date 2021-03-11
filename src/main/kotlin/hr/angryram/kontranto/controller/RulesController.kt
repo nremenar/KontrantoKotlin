@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class RulesController {
 
-    @GetMapping(value= arrayOf("/rules","/rules/"))
+    @GetMapping(value= ["/rules", "/rules/"])
     fun getRules(model : Model) : String{
         return "rules";
     }

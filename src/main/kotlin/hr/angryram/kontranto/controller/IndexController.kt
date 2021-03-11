@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class IndexController {
 
-    @GetMapping(value= arrayOf("/",""))
+    @GetMapping(value= ["/", ""])
     fun index(model:Model): String{
         return "index"
     }

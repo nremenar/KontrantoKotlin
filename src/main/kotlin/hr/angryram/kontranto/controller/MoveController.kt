@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class MoveController {
 
-    @GetMapping(value= arrayOf("/move","/move/"))
+    @GetMapping(value= ["/move", "/move/"])
     fun move () : String{
         return "move";
     }

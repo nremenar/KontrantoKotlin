@@ -10,38 +10,24 @@ import javax.persistence.*
 @Table(name="games")
 class GameEntity {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private val gameid: Int? = null
+    var gameid: Int? = null
 
-    @Getter
-    @Setter
-    private val game: String? = null
+    var game: String? = null
 
-    @Getter
-    @Setter
-    private val whitePlayerId: String? = null
+    var whitePlayerId: String? = null
 
-    @Getter
-    @Setter
-    private val blackPlayerId: String? = null
+    var blackPlayerId: String? = null
 
-    @Getter
-    @Setter
-    private val whiteScore: String? = null
+    var whiteScore: String? = null
 
-    @Getter
-    @Setter
-    private val blackScore: String? = null
+    var blackScore: String? = null
 
-    @Getter
-    @Setter
-    private val board: String? = null
+    var board: String? = null
 
-    @Getter
-    @Setter
-    private val gameState : String? = null
+    var gameState : String? = null
+
 
 }
