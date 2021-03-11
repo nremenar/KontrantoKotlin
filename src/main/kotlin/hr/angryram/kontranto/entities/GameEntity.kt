@@ -16,7 +16,7 @@ class GameEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    private val id: Int? = null
+    private val gameid: Int? = null
 
     @Getter
     @Setter

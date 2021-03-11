@@ -1,24 +1,21 @@
 package hr.angryram.kontranto.entities
 
+import lombok.Data
 import lombok.Getter
 import lombok.Setter
-import java.time.DateTimeException
-import java.util.*
+
 import javax.persistence.*
 
+@Data
+@Entity
+@Table(name="moves")
 class MoveEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
-    private val id:Int? = null
-
-    @Getter
-    @Setter
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private val game:String? = null
+    private val moveid:Int? = null
 
     @Getter
     @Setter
@@ -35,5 +32,11 @@ class MoveEntity {
     @Getter
     @Setter
     private val moveTimestamp:String ? = null
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "gameid", insertable = false, updatable = false)
+    @Getter
+    @Setter
+    private val game:GameEntity? = null
 
 }
