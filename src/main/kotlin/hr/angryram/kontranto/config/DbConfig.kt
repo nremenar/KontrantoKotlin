@@ -28,9 +28,9 @@ class DbConfig {
     fun dataSource(): DataSource? {
         val dataSource = DriverManagerDataSource()
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver")
-        dataSource.url = iEnv!!.getProperty("cms.datasource.url")
-        dataSource.username = iEnv!!.getProperty("cms.datasource.username")
-        dataSource.password = iEnv!!.getProperty("cms.datasource.password")
+        dataSource.url = iEnv!!.getProperty("kontranto.datasource.url")
+        dataSource.username = iEnv!!.getProperty("kontranto.datasource.username")
+        dataSource.password = iEnv!!.getProperty("kontranto.datasource.password")
         return dataSource
     }
 

@@ -10,8 +10,6 @@ import javax.persistence.*
 @Table(name="games")
 class GameEntity {
 
-    private val serialVersionUID = -4087970586697604468L
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter

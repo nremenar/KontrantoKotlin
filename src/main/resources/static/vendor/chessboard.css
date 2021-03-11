@@ -1,0 +1,136 @@
+/*! chessboard.js v@VERSION | (c) 2019 Chris Oakman | MIT License chessboardjs.com/license */
+
+.clearfix-7da63 {
+  clear: both;
+}
+
+.board-b72b1 {
+  border: 2px solid #404040;
+  box-sizing: content-box;
+}
+
+.square-55d63 {
+  float: left;
+  position: relative;
+
+  /* disable any native browser highlighting */
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.white-1e1d7 {
+  background-color: #b4f3ff;
+  color: #000;
+}
+
+.black-3c85d {
+  background-color: #a0c4ff;
+  color: #000;
+}
+
+.black-null {
+  background-color: #070707;
+  color: #000;
+}
+
+.white-null {
+  background-color: #f6f6f6;
+  color: #000;
+}
+
+.highlight1-32417, .highlight2-9c5d2 {
+  box-shadow: inset 0 0 3px 3px yellow;
+}
+
+.notation-322f9 {
+  cursor: default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  position: absolute;
+}
+
+.alpha-d2270 {
+  bottom: 1px;
+  right: 3px;
+}
+
+.numeric-fc462 {
+  top: 2px;
+  left: 2px;
+}
+
+.spare-pieces-bottom-ae20f {
+  position:absolute;
+  top:35%;
+  left:7%;
+  transform:translate(0,-50%);
+  width: 11.5%;
+  height: 20%;
+  padding: 0px;
+}
+
+.spare-pieces-top-4028b{
+  position:absolute;
+  top:35%;
+  right:12%;
+  transform:translate(0,-50%);
+  width: 11.5%;
+  height: 20%;
+  padding: 0px;
+  display: none
+}
+
+.okvir {
+  position: absolute;
+  color: #000000;
+  text-decoration: none;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  width: 15%;
+  text-align: center;
+  display: block;
+  top: 45%;
+  right: 5.5%;
+  background-color:#fff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px grey;
+  font-family: 'Mulish', sans-serif;
+  font-size: 2vw;
+  transition: 0.35s
+}
+.okvir:hover{
+  color:#fff;
+  background-color: #1ddadd;
+  transition: 0.35s;
+  cursor: pointer
+}
+
+.okvir:active{
+  color:#fff;
+  background-color: #1ddadd;
+  cursor: pointer;
+  transform: scale(0.98);
+  box-shadow: 2px 2px 5px grey;
+  transition: 0.1s
+}
+
+.grayedOutButton {
+  color: #c7ecec;
+  background-color:#63c5c9;
+  opacity: 0.6;
+  transform: scale(0.98);
+  box-shadow: 2px 2px 5px grey;
+  cursor: not-allowed;
+  transition: 0.35s
+}
+
+.grayedOutButton:hover{
+  color: #c7ecec;
+  background-color:#63c5c9;
+  opacity: 0.6;
+  cursor: not-allowed
+}
