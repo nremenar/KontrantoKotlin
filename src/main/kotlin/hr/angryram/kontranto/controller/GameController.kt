@@ -24,9 +24,8 @@ class GameController {
     }
 
     @PostMapping(value = ["/show_board", "/show_board/"])
-    fun joinBoard(model : Model,@RequestParam PlayerId:String) : String{
-
-        model["game"] = gameService?.createNewGame(PlayerId)!!
+    fun joinBoard(model : Model,@RequestParam PlayerId:String,@RequestParam GameId: String) : String{
+        model["game"] = gameService?.joinGame(GameId,PlayerId)!!
         return "board"
     }
 

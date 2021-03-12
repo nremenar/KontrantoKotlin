@@ -45,9 +45,9 @@ class GameServiceImpl : GameService {
         }
 
         try{
-            val game = gameRepository?.findByGame(GameId)
-            if(game?.gameState == "INIT") {resp.message = "Game already started";return resp}
-            if(game?.whitePlayerId == PlayerId || game?.blackPlayerId == PlayerId){resp.message = "You are already joined to the game.";return resp}
+            val game = gameRepository?.findByGame(GameId)!!
+            if(game.gameState == "INIT") {resp.message = "Game already started";return resp}
+            if(game.whitePlayerId == PlayerId || game.blackPlayerId == PlayerId){resp.message = "You are already joined to the game.";return resp}
         }
         catch(e:Exception){
             resp.message = "Game with this game_id does not exist.";return resp
@@ -55,6 +55,41 @@ class GameServiceImpl : GameService {
 
         resp.message="OK"
         resp.status="OK"
+        return resp
+    }
+
+    override fun joinGame(GameId: String, PlayerId: String): GameStatusResponse {
+        val game = gameRepository?.findByGame(GameId)!!
+        var color2 = "white"
+        if (game.whitePlayerId == ""){
+            game.whitePlayerId = PlayerId
+        }
+        else{
+            game.blackPlayerId = PlayerId
+            color2 = "black"
+        }
+        game.gameState="INIT"
+        gameRepository?.save(game)
+        val resp = GameStatusResponse()
+        resp.status="OK"
+        resp.gameId = game.game
+        resp.myId = PlayerId
+        resp.myColor = color2
+        return resp
+    }
+
+    override fun gameState(GameId: String, Color: String): GameStatusResponse {
+        val game = gameRepository?.findByGame(GameId)!!
+        var opponentId = if(Color == "white") game.blackPlayerId else game.whitePlayerId
+
+        val resp = GameStatusResponse()
+
+        resp.status="OK"
+        resp.opponentId=opponentId
+        resp.whiteScore=game.whiteScore
+        resp.blackScore=game.blackScore
+        resp.gameState=game.gameState
+
         return resp
     }
 }
