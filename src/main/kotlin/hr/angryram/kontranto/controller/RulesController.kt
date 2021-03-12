@@ -10,6 +10,6 @@ class RulesController {
 
     @GetMapping(value= ["/rules", "/rules/"])
     fun getRules(model : Model) : String{
-        return "rules";
+        return "rules"
     }
 }

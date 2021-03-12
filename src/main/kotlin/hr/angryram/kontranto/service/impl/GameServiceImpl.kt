@@ -19,20 +19,21 @@ class GameServiceImpl : GameService {
         val game = GameEntity()
 
         val color = GetColor().generateColor("")
-        game?.game = UUID.randomUUID().toString()
-        game?.gameState="WAITING_FOR_SECOND_PLAYER"
-        game?.whiteScore="0"
-        game?.blackScore="0"
-        game?.board="[\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"]"
-        if(color=="white"){game?.whitePlayerId=PlayerId}
-        else game?.blackPlayerId = PlayerId
+        game.game = UUID.randomUUID().toString()
+        game.gameState="WAITING_FOR_SECOND_PLAYER"
+        game.whiteScore="0"
+        game.blackScore="0"
+        game.board="[\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"], [\"\",\"\",\"\",\"\"]"
+        if(color=="white"){
+            game.whitePlayerId =PlayerId}
+        else PlayerId.also { game.blackPlayerId = it }
         gameRepository?.save(game)
         return game
     }
 
     override fun checkJoinGame(GameId:String, PlayerId : String): GameStatusResponse {
 
-        var resp = GameStatusResponse()
+        val resp = GameStatusResponse()
         resp.status="Error"
         if(PlayerId == ""){
             resp.message="Player ID is not valid."
@@ -44,7 +45,7 @@ class GameServiceImpl : GameService {
         }
 
         try{
-            var game = gameRepository?.findByGame(GameId)
+            val game = gameRepository?.findByGame(GameId)
             if(game?.gameState == "INIT") {resp.message = "Game already started";return resp}
             if(game?.whitePlayerId == PlayerId || game?.blackPlayerId == PlayerId){resp.message = "You are already joined to the game.";return resp}
         }
@@ -52,8 +53,8 @@ class GameServiceImpl : GameService {
             resp.message = "Game with this game_id does not exist.";return resp
         }
 
-        resp.message="OK";
-        resp.status="OK";
+        resp.message="OK"
+        resp.status="OK"
         return resp
     }
 }

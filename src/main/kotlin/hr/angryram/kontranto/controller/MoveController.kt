@@ -8,6 +8,6 @@ class MoveController {
 
     @GetMapping(value= ["/move", "/move/"])
     fun move () : String{
-        return "move";
+        return "move"
     }
 }
