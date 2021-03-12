@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head:: head"></head>
+<body>
+
+    <div class = "">
+        <form id=form1 name=form1 action="/show_board" method="get">
+            <p>New game</p>
+            <input type="text" name="PlayerId" placeholder="Player ID" required>
+            <button name=button1 type="submit">Start a new game</button>
+        </form>
+    </div>
+
+    <div class = "">
+        <form id=form2 name=form2 action="/show_board" method="post">
+            <p>Join a game</p>
+            <input type="text" id="game_id" name="game_id" placeholder="Enter existing game id">
+            <input type="text" name="player_id" placeholder="Player ID">
+            <button name=button2 type="submit">Join</button>
+        </form>
+    </div>
+
+
+    <script>
+        $(document).ready(function (){
+            $("#form2").on("submit", function (e) {
+                e.preventDefault()
+                let form = $(this);
+                $.ajax({
+                    type:"POST",
+                    url:"/joinGame",
+                    data:{GameId:form.find("input[name=game_id]").val(),PlayerId:form.find("input[name=player_id]").val()},
+                    success:function (data){
+                        form.submit();
+                    },
+                    error:function (data){
+                        console.log("error")
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

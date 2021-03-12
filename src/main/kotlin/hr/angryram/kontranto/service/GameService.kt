@@ -1,9 +1,9 @@
 package hr.angryram.kontranto.service
 
 import hr.angryram.kontranto.entities.GameEntity
+import hr.angryram.kontranto.models.GameStatusResponse
 
 interface GameService {
-    fun checkForNewGame () : String
-
-    fun createNewGame():GameEntity
+    fun createNewGame(PlayerId:String):GameEntity
+    fun checkJoinGame(GameId:String, PlayerId : String): GameStatusResponse
 }

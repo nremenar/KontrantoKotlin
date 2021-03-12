@@ -13,30 +13,18 @@ class MoveEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private val moveid:Int? = null
+    var moveid:Int? = null
 
-    @Getter
-    @Setter
-    private val color:String? = null
+    var color:String? = null
 
-    @Getter
-    @Setter
-    private val trianglePosition : String? = null
+    var trianglePosition : String? = null
 
-    @Getter
-    @Setter
-    private val circlePosition:String? = null
+    var circlePosition:String? = null
 
-    @Getter
-    @Setter
-    private val moveTimestamp:String ? = null
+    var moveTimestamp:String ? = null
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "gameid", insertable = false, updatable = false)
-    @Getter
-    @Setter
-    private val game:GameEntity? = null
+    var game:GameEntity? = null
 
 }

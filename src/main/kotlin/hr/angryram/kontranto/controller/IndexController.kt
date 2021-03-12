@@ -12,5 +12,10 @@ class IndexController {
         return "index"
     }
 
+    @GetMapping(value = ["/startgame","startgame/"])
+    fun newOrJoin(model:Model):String
+    {
+        return "newOrJoin"
+    }
 
 }

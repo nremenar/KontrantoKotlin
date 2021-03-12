@@ -2,11 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head:: head"></head>
 <body>
-<link rel="stylesheet" th:href="@{/vendor/chessboard.css}">
-
-<img th:src="@{/img/logo1.png}" alt="logo1">
-<a href="./prijelaz">START GAME</a>
-<a href="./rules">RULES</a>
+    <div class="logo">
+        <img th:src="@{/img/logo1.png}" alt="logo1">
+    </div>
+    [[${game.game}]]
 
 </body>
 </html>
